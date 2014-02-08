@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block title %}Login{% endblock %}
+{% block styles %}
+body{
+	background:url( {% static "img/bg4.jpg"  %} ) no-repeat top center;
+	background-attachment:fixed;
+	height:100%;
+	
+}
+
+input{
+	margin:0;padding:0;
+}
+
+#spacemaker{
+	height:140px;
+}
+
+h1{
+	color:#ffffff;
+	text-align:center;
+}
+
+
+#register_link{
+	
+
+}
+	
+
+@media (max-width: 768px) {
+	#spacemaker{
+		height:60px;
+	}
+	
+	h1{
+		font-size:50px;
+	}
+	
+}
+
+{% endblock %}
+
+
+{% block content %}
+	<div class="row" id="spacemaker">
+		{% if form.errors %}
+			<p>Your username and password didn't match. Please try again.</p>
+		{% endif %}
+	</div>
+	<div class="row">
+		<div class="large-4 small-12 columns push-4">
+			<h1 class="white">Edu-Street</h1>
+    
+			<form method="post" action=".">{% csrf_token %}
+			
+				{{ form.username }}
+				{{ form.password }}
+        
+				<button type="submit" class="small-12" value="Login" >Login</button>
+				<input type="hidden" name="next" value="/home" />
+			</form>
+			<a href="/register" id="register_link" class="button">Register</a>
+		</div>
+	</div>
+	
+{% endblock %}

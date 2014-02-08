@@ -1,0 +1,46 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+
+<html class="no-js" lang="en">
+    <head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+       
+	   <link rel="stylesheet" href='{% static "css/foundation.css" %}' >
+		<script src= '{% static "js/vendor/modernizr.js" %}' > </script>
+		
+		
+		<title>Edu-Street |
+        {% block title %}{% endblock %}</title>
+		
+		<style>
+		{% block styles %}{% endblock %}
+		</style>
+		
+    </head>
+    <body>
+     <!--All stuff will be between from here-->  
+        {% block content %}{% endblock %}
+ 
+    
+	
+	<!--to here, don't play with whatever's below-->
+		
+		
+		<script src='{% static "js/vendor/jquery.js" %}'> </script>
+		<script src='{% static "js/foundation.min.js" %}'> </script>
+		<script>
+			$(document).foundation();
+		</script>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	</body>
+</html>
